@@ -1,24 +1,27 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-#include "game.h"
-#include <stdio.h>
+#include"game.h"
 
 int main()
 {
-	int i = 0;
-	menu();
-	scanf("%d", &i);
-	switch (i)
+	int input = 0;
+	do
 	{
-	case 1:
-		gameNAC();
-		break;
-	case 0:
-		break;
-	default:
-		puts("输入错误，请重新输入！！");
-	}
+		
+		meun();
+		scanf("%d", &input);
+		switch (input)
+		{
+		case 1:
+			game();
+			break;
+		case 0:
+			break;
+		default:
+			puts("输入错误，请重新输入！！");
+		}
 
+	} while (input);
+	
 	return 0;
 }
-
