@@ -2,26 +2,29 @@
 
 #include"game.h"
 
+void menu()
+{
+	printf("*******************\n");
+	printf("** 1.play  0.out **\n");
+	printf("*******************\n");
+}
+
 int main()
 {
 	int input = 0;
 	do
 	{
-		
-		meun();
+		menu();
 		scanf("%d", &input);
-		switch (input)
+		if (1 == input)
 		{
-		case 1:
 			game();
-			break;
-		case 0:
-			break;
-		default:
-			puts("输入错误，请重新输入！！");
+		}
+		if (1 != input && 0 != input)
+		{
+			printf("输入错误\n");
 		}
 
 	} while (input);
-	
 	return 0;
 }
