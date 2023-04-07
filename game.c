@@ -1,181 +1,183 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-
 #include"game.h"
 
-void game()
+void menu()
 {
-	
-	//创建mine棋盘和show棋盘
-	char mine[ROWS][COLS] = { 0 };
-	char show[ROWS][COLS] = { 0 };
-	// 随机数起点  时间戳
-	srand((unsigned int)time(NULL));
-	// 初始化mine棋盘
-	initboard(mine, ROWS, COLS, '0');
-	// 布置雷
-	setmine(mine);
-	// 打印雷的位置
-	//dispboard(mine, ROW, COL);
-	// 初始化show棋盘
-	initboard(show, ROWS, COLS, '*');
-	// dispboard
-	dispboard(show, ROW, COL);
-	//play
-	play(mine, show);
+	printf("***********************\n");
+	printf("*** 1.play   0. out ***\n");
+	printf("***********************\n");
 }
 
-void play(char mine[ROWS][COLS], char show[ROWS][ROWS])
+void initNAC(char NAC[ROW][COL])
 {
-	int n = ROW * COL - setcount;
-	int x = 0;
-	int y = 0;
-	
-	for (;n;)
+	int i = 0, j = 0;
+	for (i = 0; i < 3; i += 1)
 	{
-		printf("请输入:>");
+		for (j = 0; j < 3; j += 1)
+		{
+			NAC[i][j] = ' ';
+		}
+	}
+}
+
+//    |   |   
+// ---|---|---
+//    |   |   
+// ---|---|---
+//    |   |   
+//
+
+void dispNAC(char NAC[ROW][COL])
+{
+	int i = 0, j = 0;
+	for (i = 0; i < COL; i += 1)
+	{
+		for (j = 0; j < ROW; j += 1)
+		{
+			printf(" %c ", NAC[i][j]);
+			if (j < ROW - 1)
+			{
+				printf("|");
+			}
+		}
+		printf("\n");
+		if (i < COL - 1)
+		{
+			for (j = 0; j < ROW; j += 1)
+			{
+				printf("---");
+				if (j < ROW - 1)
+				{
+					printf("|");
+				}
+			}
+			printf("\n");
+		}
+	}
+}
+
+void playNAC(char NAC[ROW][COL])
+{
+	int x = 0, y = 0;
+	for (;;)
+	{
 		scanf("%d %d", &x, &y);
-		if (1 <= x && x <= ROW && 1 <= y && y <= COL)
+		if (1 <= x && x <= COL && 1 <= y && y <= ROW)
 		{
-			if ('1' == mine[x][y])
-			{
-				printf("你被炸死了\n");
-				break;
-			}
-			else
-			{
-				plays(mine, show, x , y, &n);
-				system("cls");
-				dispboard(show, ROW, COL);
-			}
-
+			NAC[y - 1][x - 1] = '*';
+			break;
 		}
 		else
 		{
-			printf("输入错误\n");
+			printf("位置不合法\n");
 		}
 	}
-	if (0 == n);
-	{
-		printf("恭喜获胜！！！\n");
-		dispboard(mine, ROW, COL);
-	}
-	
 }
 
-void plays(char mine[ROWS][COLS], char show[ROWS][COLS], int x, int y, int* n)
+void computerNAC(char NAC[ROW][COL])
 {
-	if ('*' == show[x][y])
+	int x = 0, y = 0;
+	for (;;)
 	{
-		if (0 == countboards(mine, x, y))
+		x = rand() % 3;
+		y = rand() % 3;
+		if (NAC[y][x] == ' ')
 		{
-			show[x][y] = ' ';
-			*n -= 1;
-			if (x - 1 >= 1 && y + 1 <= COL)
-			{
-				plays(mine, show, x - 1, y + 1, n);
-			}
-			if (x - 1 >= 1)
-			{
-				plays(mine, show, x - 1, y, n);
-			}
-			if (x - 1 >= 1 && y - 1 >= 1)
-			{
-				plays(mine, show, x - 1, y - 1, n);
-			}
-			if (y - 1 >= 1)
-			{
-				plays(mine, show, x, y - 1, n);
-			}
-			if (x + 1 <= ROW && y - 1 >= 1)
-			{
-				plays(mine, show, x + 1, y - 1, n);
-			}
-			if (x + 1 <= ROW)
-			{
-				plays(mine, show, x + 1, y, n);
-			}
-			if (x + 1 <= ROW && y + 1 <= COL)
-			{
-				plays(mine, show, x + 1, y + 1, n);
-			}
-			if (y + 1 <= COL)
-			{
-				plays(mine, show, x, y + 1, n);
-			}
+			NAC[y][x] = '#';
+			break;
 		}
-		else
+	}
+
+}
+
+char ju_NAC(char NAC[ROW][COL])
+{
+	int i = 0;
+	int j = 0;
+	for (i = 0; i < ALL; i += 1)
+	{
+		if (NAC[0][i] == NAC[1][i] && NAC[1][i] == NAC[2][i] && NAC[1][i] != ' ')
 		{
-			show[x][y] = '0' + countboards(mine, x, y);
-			*n -= 1;
+			return NAC[1][i];
+		}
+		if (NAC[i][0] == NAC[i][1] && NAC[i][1] == NAC[i][2] && NAC[i][1] != ' ')
+		{
+			return NAC[i][1];
 		}
 		
 	}
-
-
-}
-
-char countboards(char mine[ROWS][COLS], int x, int y)
-{
-	return
-		(mine[x - 1][y + 1] - '0') + (mine[x - 1][y] - '0') +
-		(mine[x - 1][y - 1] - '0') + (mine[x][y - 1] - '0') +
-		(mine[x + 1][y - 1] - '0') + (mine[x + 1][y] - '0') +
-		(mine[x + 1][y + 1] - '0') + (mine[x][y + 1] - '0');
-}
-
-void setmine(char mine[ROWS][COLS])
-{
-	int flag = setcount;
-	int x = 0;
-	int y = 0;
-	for (;flag;)
+	if (NAC[0][0] == NAC[1][1] && NAC[1][1] == NAC[2][2] && NAC[1][1] != ' ')
 	{
-		x = rand() % ROW + 1; y = rand() % COL + 1;
-		if (x >= 1 && x <= 9 && y >= 1 && y <= 9)
+		return NAC[1][1];
+	}
+	if (NAC[0][2] == NAC[1][1] && NAC[1][1] == NAC[2][0] && NAC[1][1] != ' ')
+	{
+		return NAC[1][1];
+	}
+	
+	for (i = 0; i < ALL; i += 1)
+	{
+		for (j = 0; j < ALL; j += 1)
 		{
-			if (mine[x][y] != '1')
+			if (NAC[i][j] == ' ')
 			{
-				mine[x][y] = '1';
-				flag -= 1;
+				return '1';
 			}
 		}
 	}
+	return '0';
 }
-
-
-
-
-void dispboard(char board[ROWS][COLS], int row, int col)
+//玩家赢 -- *
+//电脑赢 -- #
+//平局   -- 0
+//继续   -- 1
+void play()
 {
-	int i = 0;
-	int j = 0;
-	for (i = 0; i <= row; i += 1)
+	char ret = 0;
+	char NAC[ROW][COL] = { 0 };
+	//  初始化棋盘
+	initNAC(NAC);
+	dispNAC(NAC);
+	for (;;)
 	{
-		printf("%d ", i);
-	}
-	printf("\n");
-	for (i = 1; i <= row; i += 1)
-	{
-		printf("%d ", i);
-		for (j = 1; j <= col; j += 1)
+		
+		playNAC(NAC);
+		dispNAC(NAC);
+		ret = ju_NAC(NAC);
+		if (ret == '*')
 		{
-			printf("%c ", board[j][i]);
-			
+			printf("赢\n");
+			break;
+		}
+		else if (ret == '#')
+		{
+			printf("输\n");
+			break;
+		}
+		else if (ret == '0')
+		{
+			printf("平\n");
+			break;
+		}
+		computerNAC(NAC);
+		dispNAC(NAC);
+		ret = ju_NAC(NAC);
+		if (ret == '*')
+		{
+			printf("赢\n");
+			break;
+		}
+		else if (ret == '#')
+		{
+			printf("输\n");
+			break;
+		}
+		else if (ret == '0')
+		{
+			printf("平\n");
+			break;
 		}
 
-		printf("\n");
 	}
-}
-
-void initboard(char board[ROWS][COLS], int row, int col, char set)
-{
-	int i = 0;
-	int j = 0;
-	for (i = 0; i < row; i += 1)
-	{
-		for (j = 0; j < col; j += 1)
-		{
-			board[i][j] = set;
-		}
-	}
+	
 }
