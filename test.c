@@ -1,104 +1,79 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include<stdio.h>
 
-//int main()
-//{
-//	float a;
-//	a = 5 / 2.0;
-//	printf("a = %f", a);
-//	return 0;
-//}
+#include <stdio.h>
 
 //int main()
 //{
 //	int a = 0;
-//	scanf("%d", &a);
-//	a <<= 1;
-//	printf("%d", a);
+//	printf("%d\n", ~a);
 //	return 0;
 //}
 
 //int main()
 //{
-//	int a = 3, b = 5;
-//	printf("a = %d, b = %d\n", a, b);
-//	a = a * b;
-//	b = a / b;
-//	a = a / b;
-//	/*a = a + b;
-//	b = a - b;
-//	a = a - b;*/
-//	//int c = a & b;
-//	//// 011
-//	//// 101
-//	//// 001
-//	//printf("%d\n", c);// 1
-//	//c = a | b;
-//	//// 011
-//	//// 101
-//	//// 111
-//	//printf("%d\n", c);// 7
-//	//a = a ^ b;
-//	//b = a ^ b;
-//	//a = a ^ b;
-//	printf("a = %d, b = %d\n", a, b);
-//	return 0;
-//}
-
-//int main()
-//{
-//	int i = 0;
-//	int count = 0;
-//	int a = 0;
-//	scanf("%d", &a);
-//
-//	for (; a;)
+//	int a = 3;
+//	int b = 5;
+//	int c = 0;
+//	/*c = (a > b ? a + a : b + b);*/
+//	if (b > a)
 //	{
-//		count += 1;
-//		a = a & (a - 1);
+//		c = a + a;
 //	}
-//
-//	/*for (i = 0; i < 32; i += 1)
+//	else
 //	{
-//		if (a >> i & 1 == 1)
-//		{
-//			count += 1;
-//		}
-//	}*/
-//	/*for (i = 0; i < (sizeof(a) * 8); i += 1)
-//	{
-//		if (a & 1 == 1)
-//		{
-//			count += 1;
-//		}
-//		a >>= 1;
-//	}*/
-//	/*for (;a;)
-//	{
-//		if (a % 2 == 1)
-//		{
-//			count += 1;
-//		}
-//		a /= 2;
-//	}*/
-//	printf("%d\n", count);
+//		c = b + b;
+//	}
+//	printf("%d\n", c);
 //	return 0;
 //}
 
 //int main()
 //{
 //	int a = 0;
-//	char b = 0;
-//	char arr[10] = { 0 };
-//	int* p = &a;
-//	printf("%d\n", p);
-//	printf("%d\n", *p);
+//	int b = 0;
+//	int c = 1000;
 //
-//
-//	/*a = 0;
-//	if (!a)
+//	/*if (a = a + 1, b = b + a, c < b)
 //	{
 //		printf("hehe\n");
 //	}*/
+//	while (a += 1, b += a, (c -= b) > 0)
+//	{
+//		printf("hehe");
+//	}
+//	printf("\n");
+//
 //	return 0;
 //}
+
+//int CP(int x, int y)
+//{
+//
+//	return x > y ? x : y;
+//}
+//
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf("%d%d", &a, &b);
+//	c = CP(a, b);
+//	printf("%d\n", c);
+//	return 0;
+//}
+
+//struct me
+//{
+//	char name[20];
+//	char school[40];
+//	int age;
+//};
+//
+//int main()
+//{
+//	struct me I = { "周海涛", "湖南高速铁路职业技术学院", 20 };
+//	printf("名字:%s\n学校:%s\n年龄:%d\n", I.name, I.school, I.age);
+//	return 0;
+//}
+
