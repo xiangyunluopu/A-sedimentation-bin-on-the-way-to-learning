@@ -1,38 +1,30 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
+//#include <stdio.h>
+//
+//int main() {
+//	char a = 3; 
+//	//00000000000000000000000000000011
+//	char b = 127;
+//	//00000000000000000000000001111111
+//	//00000000000000000000000010000010
+//	char h = a + b;
+//	//11111111111111111111111110000010
+//	//11111111111111111111111110000001
+//	//10000000000000000000000001111110
+//
+//	printf("%d\n", h);
+//	return 0;
+//}
+
 #include <stdio.h>
 
 int main() {
-	int arr[100] = { 0 };
-	int pre = 0;
-	int last = 0;
-	int m = 0;
-	int n = 0;
-	scanf("%d %d", &m, &n);
-	int i = 0;
- 	for (i = 0; i < m; i += 1) {
-		arr[i] = i + 1;
-	}
-	arr[i - 1] = 0;
-	pre = 0;
-	last = m - 1;
-	int t = m;
-	int count = 1;
-	for (; t > 1;) {
-		if (count == n)
-		{
-			arr[last] = arr[pre];
-			pre = arr[last];
-			count = 1;
-			t -= 1;
-		}
-		else {
-			last = pre;
-			pre = arr[last];
-			count += 1;
-		}
-	}
-
-	printf("%d\n", arr[pre] + 1);
+	char c = 0;
+	/*printf("%u\n", sizeof(c));
+	printf("%u\n", sizeof(c));
+	printf("%u\n", sizeof(+c));*/
+	printf("%d\n", sizeof(-c));
+	
 	return 0;
 }
