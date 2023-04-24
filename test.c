@@ -1,72 +1,100 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-#include "LIFO.h"
+#define size 100
 
-int main() {
-	char n = -1;
-	int A = 0;
-	int i = 0;
+#include <stdio.h>
+
+void trans(char exp[size], char possexp[size]) {
 	int j = 0;
-	SeqStack S;
-	int flag = 0;
-	InitStack(&S);
-	do {
-		mune();
-		scanf("%d", &A);
-		switch (A) {
-		case 1:
-			InitStack(&S);
+	struct zhang {
+		char f[size];
+		int top;
+	};
+	struct zhang op;
+	op.top = -1;
+	for ( j = -1; *exp != '\n';) {
+		switch (*exp) {
+		case '+':
+		case '-':
+			if (op.f[op.top] != '(' && op.top != -1) {
+				for (; op.f[op.top] != '(' && op.top != -1;) {
+					j += 1;
+					possexp[j] = op.f[op.top];
+					op.top -= 1;
+				}
+			}
+			op.top += 1;
+			op.f[op.top] = *exp;
+			exp++;
 			break;
-		case 2:
-			printf("请输入想要入栈的个数>:");
-			scanf("%d", &i);
-			flag = Push(&S, i);
-			i = 0;
-			if (1 == flag) {
-				printf("栈满\n");
+		case '*':
+		case '/':
+			if (op.f[op.top] == '*' || op.f[op.top] == '/') {
+				for (; op.top != -1 && (op.f[op.top] == '*' || op.f[op.top] == '/');) {
+					j += 1;
+					possexp[j] = op.f[op.top];
+					op.top -= 1;
+				}
 			}
-			else if (2 == flag) {
-				printf("想要入栈的个数超出栈空间\n");
-			}
-			else {
-				printf("入栈 OK \n");
-			}
+			
+			op.top += 1;
+			op.f[op.top] = *exp;
+			exp += 1;
 			break;
-		case 3:
-			printf("请输入想要弹栈的个数>:");
-			scanf("%d", &i);
-			flag = Pop(&S, i);
-			if (1 == flag) {
-				printf("栈空\n");
-			}
-			else if (2 == flag) {
-				printf("出栈个数太多\n");
-			}
-			else if (3 == flag) {
-				printf("数字不合法\n");
-			}
-			else {
-				printf("弹栈， ok\n");
-			}
+		case '(':
+			op.top += 1;
+			op.f[op.top] = *exp;
+			exp += 1;
 			break;
-		case 4:
-			flag = GetTop(&S);
-			if (1 == flag) {
-				printf("栈空");
+		case ')':
+			for (; op.f[op.top] != '(';) {
+				j += 1;
+				possexp[j] = op.f[op.top];
+				op.top -= 1;
 			}
-			else if (0 == flag) {
-				printf("Top:%d\n", x);
-			}
-			break;
-		case 0:
-			n = ~n;
+			exp += 1;
+		case ' ':
+			exp += 1;
 			break;
 		default:
-			printf("输入错误\n");
+			for (; '0' <= *exp && *exp <= '9';) {
+				j += 1;
+				possexp[j] = *exp;
+				exp += 1;
+			}
+			j += 1;
+			possexp[j] = '#';
+			break;
 		}
-	} while (n);
+		
+	}
+	j += 1;
+	possexp[j] = '\0';
+	printf("%s", possexp);
+	
+}
 
+int main() {
+	char exp[size] = { 0 };
+	char possexp[size] = { 0 };
+	scanf("%s", exp);
 
+	trans(exp, possexp);
 
 	return 0;
 }
+
+//#include <stdio.h>
+//
+//int i = 0;
+//
+//int main() {
+//
+//	printf("[%d]hello,world!\n", i);
+//
+//	
+//		main();
+//	
+//
+//	return 0;
+//}
