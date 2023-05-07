@@ -1,377 +1,246 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 
-//#include<stdio.h>
-//
-//typedef struct {
-//	int data[10];
-//	int top;
-//}Sta;
-//
-//void ana(Sta* x, int n) {
-//	if (n) {
-//		x->top += 1;
-//		x->data[x->top] = n % 10;
-//		ana(x, n / 10);
-//	}
-//}
-//
-//void print(Sta* x, int n) {
-//	int i = 0;
-//	ana(x, n);
-//	for (i = x->top; i > -1; i -= 1) {
-//		printf("%d", x->data[i]);
-//	}
-//	printf("\n");
-//}
-//
-//int main(void) {
-//	Sta x;
-//	x.top = -1;
-//	int n = 1234;
-//	print(&x, n);
-//	return 0;
-//}
+#include<stdio.h>
+#include<time.h>
+#include<stdlib.h>
 
-//#include<stdio.h>
-//
-//int main(void) {
-//	printf("%d\n", 1234 % 10);
-//	return 0;
-//}
+typedef struct {
+	char name[20];
+	int i;
+}d;
 
-//#include<stdio.h>
-//
-//int main(void) {
-//	int n = 0;
-//	int i = 0;
-//	int num = 0;
-//	scanf("%d", &n);
-//	for (i = 1, num = 1; i <= n; i += 1) {
-//		num = i * num;
-//	}
-//	printf("%d\n", num);
-//	return 0;
-//}
+d a0 = { "陈奇峰", 1 };
+d a1 = { "彭施涛", 1 };
+d a2 = { "黄俊", 1 };
+d a3 = { "王维", 1 };
+d a4 = { "封浩然", 1 };
+d a5 = { "雷程", 1 };
+d a6 = { "李冰", 1 };
+d a7 = { "尹晶", 1 };
+d a8 = { "杨琪", 1 };
+d a9 = { "屈柏臣", 1 };
+d a10 = { "黄剑波", 1 };
+d a11 = { "许赛", 1 };
+d a12 = { "吴威鹏", 1 };
+d a13 = { "杨鑫", 1 };
+d a14 = { "龙丹", 1 };
+d a15 = { "周海涛", 1 };
+d a16 = { "王章杭", 1 };
+d a17 = { "杨俊伟", 1 };
+d a18 = { "张杨发", 1 };
+d a19 = { "朱智辉", 1 };
 
-//#include<stdio.h>
-//
-//int n_n_n(int n) {
-//	if (n > 1)
-//		return n * n_n_n(n - 1);
-//	else if (n == 1)
-//		return 1;
-//}
-//
-//int main(void) {
-//	int n = 0;
-//	scanf("%d", &n);
-//	printf("%d", n_n_n(n));
-//	return 0;
-//}
+int re(int c) {
+	switch (c) {
+	case 0:
+		return a0.i;
+		break;
+	case 1:
+		return a1.i;
+		break;
+	case 2:
+		return a2.i;
+		break;
+	case 3:
+		return a3.i;
+		break;
+	case 4:
+		return a4.i;
+		break;
+	case 5:
+		return a5.i;
+		break;
+	case 6:
+		return a6.i;
+		break;
+	case 7:
+		return a7.i;
+		break;
+	case 8:
+		return a8.i;
+		break;
+	case 9:
+		return a9.i;
+		break;
+	case 10:
+		return a10.i;
+		break;
+	case 11:
+		return a11.i;
+		break;
+	case 12:
+		return a12.i;
+		break;
+	case 13:
+		return a13.i;
+		break;
+	case 14:
+		return a14.i;
+		break;
+	case 15:
+		return a15.i;
+		break;
+	case 16:
+		return a16.i;
+		break;
+	case 17:
+		return a17.i;
+		break;
+	case 18:
+		return a18.i;
+		break;
+	case 19:
+		return a19.i;
+		break;
+	}
+}
 
-//#include<stdio.h>
-//
-//int my_strlen(char* str) {
-//	int count = 0;
-//	while (*str != '\0') {
-//		str += 1;
-//		count += 1;
-//	}
-//	return count;
-//}
-//
-//void reverse_string(char* str) {
-//	int sz = my_strlen(str);
-//	//printf("%d", sz);
-//	int lift = 0;
-//	int right = sz - 1;
-//	char tmp = 0;
-//	while (lift < right) {
-//		tmp = *(str + lift);
-//		*(str + lift) = *(str + right);
-//		*(str + right) = tmp;
-//		/*tmp = str[lift];
-//		str[lift] = str[right];
-//		str[right] = tmp;*/
-//		lift += 1;
-//		right -= 1;
-//	}
-//	printf("%s\n", str);
-//}
-//
-//int main(void) {
-//	char str[] = "abcdefg";
-//	reverse_string(str);
-//	
-//	return 0;
-//}
-//#include<stdio.h>
+void rere(int a, int b) {
+	switch (a) {
+	case 0:
+		a0.i = 0;
+		printf("%s", a0.name);
+		break;
+	case 1:
+		a1.i = 0;
+		printf("%s", a1.name);
+		break;
+	case 2:
+		a2.i = 0; printf("%s", a2.name);
+		break;
+	case 3:
+		a3.i = 0; printf("%s", a3.name);
+		break;
+	case 4:
+		a4.i = 0; printf("%s", a4.name);
+		break;
+	case 5:
+		a5.i = 0; printf("%s", a5.name);
+		break;
+	case 6:
+		a6.i = 0; printf("%s", a6.name);
+		break;
+	case 7:
+		a7.i = 0; printf("%s", a7.name);
+		break;
+	case 8:
+		a8.i = 0; printf("%s", a8.name);
+		break;
+	case 9:
+		a9.i = 0; printf("%s", a9.name);
+		break;
+	case 10:
+		a10.i = 0; printf("%s", a10.name);
+		break;
+	case 11:
+		a11.i = 0; printf("%s", a11.name);
+		break;
+	case 12:
+		a12.i = 0; printf("%s", a12.name);
+		break;
+	case 13:
+		a13.i = 0; printf("%s", a13.name);
+		break;
+	case 14:
+		a14.i = 0; printf("%s", a14.name);
+		break;
+	case 15:
+		a15.i = 0; printf("%s", a15.name);
+		break;
+	case 16:
+		a16.i = 0; printf("%s", a16.name);
+		break;
+	case 17:
+		a17.i = 0; printf("%s", a17.name);
+		break;
+	case 18:
+		a18.i = 0; printf("%s", a18.name);
+		break;
+	case 19:
+		a19.i = 0; printf("%s", a19.name);
+		break;
+	}
+	printf(" + ");
+	switch (b) {
+	case 0:
+		a0.i = 0;
+		printf("%s", a0.name);
+		break;
+	case 1:
+		a1.i = 0;
+		printf("%s", a1.name);
+		break;
+	case 2:
+		a2.i = 0; printf("%s", a2.name);
+		break;
+	case 3:
+		a3.i = 0; printf("%s", a3.name);
+		break;
+	case 4:
+		a4.i = 0; printf("%s", a4.name);
+		break;
+	case 5:
+		a5.i = 0; printf("%s", a5.name);
+		break;
+	case 6:
+		a6.i = 0; printf("%s", a6.name);
+		break;
+	case 7:
+		a7.i = 0; printf("%s", a7.name);
+		break;
+	case 8:
+		a8.i = 0; printf("%s", a8.name);
+		break;
+	case 9:
+		a9.i = 0; printf("%s", a9.name);
+		break;
+	case 10:
+		a10.i = 0; printf("%s", a10.name);
+		break;
+	case 11:
+		a11.i = 0; printf("%s", a11.name);
+		break;
+	case 12:
+		a12.i = 0; printf("%s", a12.name);
+		break;
+	case 13:
+		a13.i = 0; printf("%s", a13.name);
+		break;
+	case 14:
+		a14.i = 0; printf("%s", a14.name);
+		break;
+	case 15:
+		a15.i = 0; printf("%s", a15.name);
+		break;
+	case 16:
+		a16.i = 0; printf("%s", a16.name);
+		break;
+	case 17:
+		a17.i = 0; printf("%s", a17.name);
+		break;
+	case 18:
+		a18.i = 0; printf("%s", a18.name);
+		break;
+	case 19:
+		a19.i = 0; printf("%s", a19.name);
+		break;
+	}
+	printf("\n");
+}
 
-//void reverse_string_(char* str, int lift, int right) {
-//	char tmp = 0;
-//	if (lift < right) {
-//		tmp = *(str + lift);
-//		*(str + lift) = *(str + right);
-//		*(str + right) = tmp;
-//		reverse_string_(str, lift + 1, right - 1);
-//	}
-//}
-//
-//void reverse_string(char* str, int lift, int right) {
-//	reverse_string_(str, lift, right - 1);
-//}
-//
-//int my_strlen(char* str) {
-//	if ('\0' != *str) {
-//		return 1 + my_strlen(str + 1);
-//	}
-//	else {
-//		return 0;
-//	}
-//}
-//
-//int main(void) {
-//	char str[] = "abcdef";
-//	int sz = my_strlen(str);
-//	// printf("%d\n", sz);
-//	reverse_string(str, 0, sz); // 此函数的使用方法， 在第二个传参中放入一个0，在三个传参中放入sz;
-//	printf("%s", str);
-//	return 0;
-//}
-
-//#include<stdio.h>
-//// abcvdef
-//// fbcde\0
-//// fecd00
-//// fed000
-//void reverse_string(char* str) {
-//	/*int sz = 0;
-//	int i = 0;
-//	if ('\0' != *str) {
-//		while ('\0' != *(str + sz)) {
-//			sz += 1;
-//		}
-//		
-//	}*/
-//	//printf("%d", sz);
-//	int sz = 0;
-//	char tmp = 0;
-//	while ('\0' != *(str + sz)) {
-//		sz += 1;
-//	}
-//	tmp = *str;
-//	*str = *(str + sz - 1);
-//	*(str + sz - 1) = '\0';
-//	if (*(str + 2) != '\0') {
-//		reverse_string(str + 1);
-//	}
-//	*(str + sz - 1) = tmp;
-//}
-//
-//int main(void) {
-//	char str[] = "abcdef";
-//	reverse_string(str);
-//	printf("%s", str);
-//	return 0;
-//}
-
-// 计算一个数的每一位之和
-
-//#include<stdio.h>
-//
-//int sum_(int n) {
-//	int count = 0;
-//	/*if (n) {
-//		return (n % 10) + sum_(n / 10);
-//	}
-//	else {
-//		return 0;
-//	}*/
-//	while (n) {
-//		count += (n % 10);
-//		n /= 10;
-//	}
-//	return count;
-//}
-//
-//int main(void) {
-//	int n = 0;
-//	scanf("%d", &n);
-//	printf("%d\n", sum_(n));
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//// 递归实现k的n次方
-//int n_k(n, k) {
-//	int num = 0;
-//	if (n = 0) {
-//		return 0;
-//	}
-//	else if (n < 0) {
-//		n *= -1;
-//		num = k;
-//		while (n > 1) {
-//			num *= k;
-//			n -= 1;
-//		}
-//		return 1 / num;
-//	}
-//	else if (n > 0) {
-//		num = k;
-//		while (n > 1) {
-//			num *= k;
-//			n -= 1;
-//		}
-//		return num; 
-//	}
-//}
-//int main(void) {
-//	int k = 0;
-//	int n = 0;
-//	printf("k = "); scanf("%d", &k);
-//	printf("n = "); scanf("%d", &n);
-//	printf("%d", n_k(n, k));
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//int main(void) {
-//	int k = 2;
-//	int n = 2;
-//	int num = k;
-//	while (n > 1) {
-//		num *= k;
-//		n -= 1;
-//	}
-//	printf("%d", num);
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//double k_n(double k, double n) {
-//	double num = k;
-//	if (0 == k) {
-//		num = 1;
-//	}
-//	else if (n < 0) {
-//		n *= -1;
-//		while (n > 1) {
-//			num *= k;
-//			n -= 1;
-//		}
-//		num /= 1;
-//	}
-//	else if (n > 0) {
-//		while (n > 1) {
-//			num *= k;
-//			n -= 1;
-//		}
-//	}
-//	return num;
-//}
-//
-//int main(void) {
-//	double k = 0;
-//	double n = 0;
-//	double num = 0;
-//	scanf("%lf%lf", &k, &n);
-//	num = k_n(k, n);
-//	printf("%lf", num);
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//double K_N(double k, double n) {
-//	if (n == 0) {
-//		return 1;
-//	}
-//	else if (n > 0) {
-//		return k * K_N(k, n - 1);
-//	}
-//	else if (n < 0) {
-//		n *= -1;
-//		return 1 / (k * K_N(k, n - 1));
-//	}
-//}
-//
-//int main(void) {
-//	double k = 0;
-//	double n = 0;
-//	double num = 0;
-//	scanf("%lf%lf", &k, &n);
-//	num = K_N(k, n);
-//	printf("%lf", num);
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//int main(void) {
-//	int main(void) {
-//
-//		return 0;
-//	}
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//int Fib(n) {
-//	int i = 0;
-//	int sum[2] = { 0 };
-//	int tmp = 0;
-//	if (n == 1 || n == 2) {
-//		return 1;
-//	}
-//	for (i = 0; i < n; i += 1) {
-//		if (i == 0) {
-//			sum[0] = 1;
-//		}
-//		else if (i == 1) {
-//			sum[1] = 1;
-//		}
-//		else {
-//			tmp = sum[1];
-//			sum[1] = sum[0] + sum[1];
-//			sum[0] = tmp;
-//			
-//		}
-//	}
-//	return sum[1];
-//}
-//
-//int main(void) {
-//	int n = 0;
-//	scanf("%d", &n);
-//	n = Fib(n);
-//	printf("%d\n", n);
-//	return 0;
-//}
-
-//#include<stdio.h>
-//
-//int Fib(int n) {
-//	if (n == 1) {
-//		return 1;
-//	}
-//	if (n == 2) {
-//		return 1;
-//	}
-//	else {
-//		return Fib(n - 1) + Fib(n - 2);
-//	}
-//}
-//
-//int main(void) {
-//	int n = 0;
-//	scanf("%d", &n);
-//	n = Fib(n);
-//	printf("%d\n", n);
-//	return 0;
-//}
-
+int main(void) {
+	int count = 20;
+	int a = 0;
+	int b = 0;
+	srand((unsigned int)time(NULL));
+	while (count) {
+		a = rand() % 20;
+		b = rand() % 20;
+		if (a != b && re(a) && re(b)) {
+			rere(a, b);
+			count -= 2;
+		}
+	}
+	getchar();
+	return 0;
+}
