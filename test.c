@@ -1,246 +1,128 @@
 #define _CRT_SECURE_NO_WARNINGS 1
+//
+//#include<stdio.h>
+//
+////void main(void) {
+////
+////	
+////}
+//
+//int main(void) {
+//
+//	//if (!0) { // 0 表示假，！0真
+//	//	printf("hello,world!\n");
+//	//}
+//
+//	int n = 0;
+//	scanf("%d", &n); // &取地址符号
+//	/*8 % 2 = 0;
+//	9 % 2 = 1;*/
+//	if (n % 2) {
+//		printf("奇数\n");
+//	}
+//	else {
+//		printf("偶数\n");
+//	}
+//	
+//
+//	return 0;
+//}
+
+//#include <stdio.h>
+//
+//int main(void) {
+//	int i = 0;
+//	// i = i + 1;
+//	// i += 1;
+//	// i++  先使用后加一
+//	// ++i	先加一后使用
+//	/*for (i = 1; i <= 100; i += 1) {
+//		if (i % 2) {
+//			printf("%d ", i);
+//		}
+//	}*/
+//	int n = 0;
+//	scanf("%d", &n);
+//
+//	if (n < 18) {
+//		printf("未成年\n");
+//	}
+//	else if (n >= 18 && n < 29) {
+//		printf("青年\n");
+//	}
+//	else {
+//		printf("这个人快很大了\n");
+//	}
+//
+//	return 0;
+//}
+
+//#include<stdio.h>
+//
+//int main(void) {
+//	int n = 0;
+//	scanf("%d", &n);
+//	switch (n) {
+//	case 1:
+//		printf("星期1\n");
+//		break;
+//	case 2:
+//		printf("星期2\n");
+//		break;
+//	case 3:
+//		printf("星期3\n");
+//		break;
+//	case 4:
+//		printf("星期4\n");
+//		break;
+//	case 5:
+//		printf("星期5\n");
+//		break;
+//	case 6:
+//		printf("星期6\n");
+//		break;
+//	case 7:
+//		printf("星期7\n");
+//		break;
+//	default: 
+//		printf("输入不合法\n");
+//	}
+//	return 0;
+//}
 
 #include<stdio.h>
-#include<time.h>
-#include<stdlib.h>
-
-typedef struct {
-	char name[20];
-	int i;
-}d;
-
-d a0 = { "陈奇峰", 1 };
-d a1 = { "彭施涛", 1 };
-d a2 = { "黄俊", 1 };
-d a3 = { "王维", 1 };
-d a4 = { "封浩然", 1 };
-d a5 = { "雷程", 1 };
-d a6 = { "李冰", 1 };
-d a7 = { "尹晶", 1 };
-d a8 = { "杨琪", 1 };
-d a9 = { "屈柏臣", 1 };
-d a10 = { "黄剑波", 1 };
-d a11 = { "许赛", 1 };
-d a12 = { "吴威鹏", 1 };
-d a13 = { "杨鑫", 1 };
-d a14 = { "龙丹", 1 };
-d a15 = { "周海涛", 1 };
-d a16 = { "王章杭", 1 };
-d a17 = { "杨俊伟", 1 };
-d a18 = { "张杨发", 1 };
-d a19 = { "朱智辉", 1 };
-
-int re(int c) {
-	switch (c) {
-	case 0:
-		return a0.i;
-		break;
-	case 1:
-		return a1.i;
-		break;
-	case 2:
-		return a2.i;
-		break;
-	case 3:
-		return a3.i;
-		break;
-	case 4:
-		return a4.i;
-		break;
-	case 5:
-		return a5.i;
-		break;
-	case 6:
-		return a6.i;
-		break;
-	case 7:
-		return a7.i;
-		break;
-	case 8:
-		return a8.i;
-		break;
-	case 9:
-		return a9.i;
-		break;
-	case 10:
-		return a10.i;
-		break;
-	case 11:
-		return a11.i;
-		break;
-	case 12:
-		return a12.i;
-		break;
-	case 13:
-		return a13.i;
-		break;
-	case 14:
-		return a14.i;
-		break;
-	case 15:
-		return a15.i;
-		break;
-	case 16:
-		return a16.i;
-		break;
-	case 17:
-		return a17.i;
-		break;
-	case 18:
-		return a18.i;
-		break;
-	case 19:
-		return a19.i;
-		break;
-	}
-}
-
-void rere(int a, int b) {
-	switch (a) {
-	case 0:
-		a0.i = 0;
-		printf("%s", a0.name);
-		break;
-	case 1:
-		a1.i = 0;
-		printf("%s", a1.name);
-		break;
-	case 2:
-		a2.i = 0; printf("%s", a2.name);
-		break;
-	case 3:
-		a3.i = 0; printf("%s", a3.name);
-		break;
-	case 4:
-		a4.i = 0; printf("%s", a4.name);
-		break;
-	case 5:
-		a5.i = 0; printf("%s", a5.name);
-		break;
-	case 6:
-		a6.i = 0; printf("%s", a6.name);
-		break;
-	case 7:
-		a7.i = 0; printf("%s", a7.name);
-		break;
-	case 8:
-		a8.i = 0; printf("%s", a8.name);
-		break;
-	case 9:
-		a9.i = 0; printf("%s", a9.name);
-		break;
-	case 10:
-		a10.i = 0; printf("%s", a10.name);
-		break;
-	case 11:
-		a11.i = 0; printf("%s", a11.name);
-		break;
-	case 12:
-		a12.i = 0; printf("%s", a12.name);
-		break;
-	case 13:
-		a13.i = 0; printf("%s", a13.name);
-		break;
-	case 14:
-		a14.i = 0; printf("%s", a14.name);
-		break;
-	case 15:
-		a15.i = 0; printf("%s", a15.name);
-		break;
-	case 16:
-		a16.i = 0; printf("%s", a16.name);
-		break;
-	case 17:
-		a17.i = 0; printf("%s", a17.name);
-		break;
-	case 18:
-		a18.i = 0; printf("%s", a18.name);
-		break;
-	case 19:
-		a19.i = 0; printf("%s", a19.name);
-		break;
-	}
-	printf(" + ");
-	switch (b) {
-	case 0:
-		a0.i = 0;
-		printf("%s", a0.name);
-		break;
-	case 1:
-		a1.i = 0;
-		printf("%s", a1.name);
-		break;
-	case 2:
-		a2.i = 0; printf("%s", a2.name);
-		break;
-	case 3:
-		a3.i = 0; printf("%s", a3.name);
-		break;
-	case 4:
-		a4.i = 0; printf("%s", a4.name);
-		break;
-	case 5:
-		a5.i = 0; printf("%s", a5.name);
-		break;
-	case 6:
-		a6.i = 0; printf("%s", a6.name);
-		break;
-	case 7:
-		a7.i = 0; printf("%s", a7.name);
-		break;
-	case 8:
-		a8.i = 0; printf("%s", a8.name);
-		break;
-	case 9:
-		a9.i = 0; printf("%s", a9.name);
-		break;
-	case 10:
-		a10.i = 0; printf("%s", a10.name);
-		break;
-	case 11:
-		a11.i = 0; printf("%s", a11.name);
-		break;
-	case 12:
-		a12.i = 0; printf("%s", a12.name);
-		break;
-	case 13:
-		a13.i = 0; printf("%s", a13.name);
-		break;
-	case 14:
-		a14.i = 0; printf("%s", a14.name);
-		break;
-	case 15:
-		a15.i = 0; printf("%s", a15.name);
-		break;
-	case 16:
-		a16.i = 0; printf("%s", a16.name);
-		break;
-	case 17:
-		a17.i = 0; printf("%s", a17.name);
-		break;
-	case 18:
-		a18.i = 0; printf("%s", a18.name);
-		break;
-	case 19:
-		a19.i = 0; printf("%s", a19.name);
-		break;
-	}
-	printf("\n");
-}
 
 int main(void) {
-	int count = 20;
-	int a = 0;
-	int b = 0;
-	srand((unsigned int)time(NULL));
-	while (count) {
-		a = rand() % 20;
-		b = rand() % 20;
-		if (a != b && re(a) && re(b)) {
-			rere(a, b);
-			count -= 2;
-		}
+	int day = 0;
+	scanf("%d", &day);
+	/*if (day >= 1 && day <= 5) {
+		printf("weekday\n");
 	}
-	getchar();
+	else {
+		if (day >= 6 && day <= 7) {
+			printf("weekend\n");
+		}
+		else {
+			
+			printf("输入不合法\n");
+		}
+	}*/
+
+	/*if () {
+
+	}
+	else if () {
+
+	}
+	else if () {
+
+	}
+	else {
+
+	}*/
+
+
+
+
 	return 0;
 }
