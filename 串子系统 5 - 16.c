@@ -210,11 +210,15 @@ void str_replace(string* S, string* V, string* T)
 		// 先查找位置， 创建一个i 来记录位置
 		i = str_index(S, V);
 		// 删除字串，
-		str_delete(S, i, V->length);
-		// 插入子串
-		str_insert(S, T, i);
-	} while (i && i + V->length <= S->length - T->length + 1);
-}
+		// 卧槽我忘记了不是什么时候都可以删的有条件 i！= 0
+		if (i != 0)
+		{
+			str_delete(S, i, V->length);
+			// 插入子串
+			str_insert(S, T, i);
+		}
+	} while (i && i + V->length <= S->length - T->length + 1); // 这里后面的判断式子我不是很理解
+}	// i + V->length <= S->length
 
 int main(void)
 {
