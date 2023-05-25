@@ -5,7 +5,7 @@
 #define D5 P1_3
 #define D6 P1_4
 
-unsigned char count_t1 = 0; 
+unsigned int count_timer1 = 0;
 
 void init_led(void)
 {
@@ -14,40 +14,35 @@ void init_led(void)
   P1 &= ~0x1b;
 }
 
-void init_T1(void)
+void init_timer1(void)
 {
   CLKCONCMD &= 0x80;
-  // 0000 1100
-  T1CTL |= 0x0c;
-  T1CC0L = 0x48;
-  T1CC0H = 0xe8;
-  // 0000 0100
-  T1CCTL0 |= 0x04;
-  T1IE = 1;
+  T1CTL |= 0x05;
   EA = 1;
-  T1CTL |= 0x02;
+  T1IE = 1;
 }
 
 #pragma vector = T1_VECTOR
-__interrupt void T1_SERVICE(void)
+__interrupt void t1_service(void)
 {
-  if (3 == ++count_t1)
+  count_timer1 += 1;
+  if (30 * 2 == count_timer1)
   {
-    D5 = 1;
+    P1 |= 0x1b;
   }
-  else if (4 == count_t1)
+  else if (30 * 4 == count_timer1)
   {
-    D5 = 0;
-    count_t1 = 0;
+    P1 &= ~0x1b;
+    count_timer1 = 0;
   }
 }
 
-void mian(void)
+void main(void)
 {
   init_led();
-  init_T1();
+  init_timer1();
   for (;;)
   {
-    
+  
   }
 }
