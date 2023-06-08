@@ -22,13 +22,13 @@ int main(void)
 			}
 		}
 	}
-	printf("成绩由高到低排序如下\n");
-	for (i = 1; i < sz; i += 1)
+	printf("鎴愮哗鐢遍珮鍒颁綆鎺掑簭濡備笅\n");
+	for (i = 0; i < sz; i += 1)
 	{
 		printf("%-3d", arr_score[i]);
 		sum += arr_score[i];
 	}
-	printf("\n平均分为>:%3d", sum / sz);
+	printf("\n骞冲潎鍒嗕负>:%3d", sum / sz);
 
 	return 0;
 }
